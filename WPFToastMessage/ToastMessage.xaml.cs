@@ -16,7 +16,7 @@ using System.Windows.Threading;
 
 namespace Se.Creotec.WPFToastMessage
 {
-    public partial class ToastWindow : Window
+    public partial class ToastMessage : Window
     {
         private const double TOAST_MARGIN = 20.0;
 
@@ -26,17 +26,23 @@ namespace Se.Creotec.WPFToastMessage
 
         private DispatcherTimer timer = new DispatcherTimer();
 
-        public ToastWindow() { }
+        public enum Position
+        {
+            TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT
+        }
+
+        #region Constructors
+        public ToastMessage() { }
         
-        public ToastWindow(String message)
+        public ToastMessage(String message)
             : this(message, DEFAULT_TITLE, DEFAULT_TIMER, DEFAULT_POS) {}
-        public ToastWindow(String message, String title)
+        public ToastMessage(String message, String title)
             : this(message, title, DEFAULT_TIMER, DEFAULT_POS) {}
 
-        public ToastWindow(String message, String title, int delay) 
+        public ToastMessage(String message, String title, int delay) 
             : this(message, title, delay, DEFAULT_POS) {}
 
-        public ToastWindow(String message, String title, int delay, ToastMessage.Position position)
+        public ToastMessage(String message, String title, int delay, ToastMessage.Position position)
         {
             InitializeComponent();
             timer.Tick += new EventHandler(closeToast);
@@ -48,15 +54,18 @@ namespace Se.Creotec.WPFToastMessage
 
             timer.Start();
         }
+        #endregion
 
-        private void closeToast(object sender, EventArgs e)
+        /// <summary>
+        /// Display a toast message for a defined amount of time
+        /// </summary>
+        /// <param name="message">The message to be shown</param>
+        /// <param name="title">The title of the toast</param>
+        /// <param name="delay">Time in seconds that the toast will be shown</param>
+        /// <param name="position">The position of the toast on the screen</param>
+        public static void Show(String message, String title, int delay, Position position)
         {
-            this.Close();
-        }
-
-        private void buttonToastClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            new ToastMessage(message, title, delay, position).Show();
         }
 
         /// <summary>
@@ -91,12 +100,24 @@ namespace Se.Creotec.WPFToastMessage
 
         private void Window_MouseEnter(object sender, MouseEventArgs e)
         {
+            // Pauses the timer when the user hover over the toast
             timer.Stop();
         }
 
         private void Window_MouseLeave(object sender, MouseEventArgs e)
         {
+            // Resumes the timer when the mouse leaves
             timer.Start();
         }        
+
+        private void closeToast(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonToastClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
