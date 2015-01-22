@@ -20,7 +20,7 @@ namespace Se.Creotec.WPFToastMessage
     {
         private const double TOAST_MARGIN = 20.0;
 
-        private const int DEFAULT_TIMER = 2;
+        private const int DEFAULT_TIMER = 3;
         private const String DEFAULT_TITLE = "Notification";
         private const ToastMessage.Position DEFAULT_POS = ToastMessage.Position.TOP_RIGHT;
 
@@ -87,6 +87,16 @@ namespace Se.Creotec.WPFToastMessage
                     this.Top = screenHeight - Height - TOAST_MARGIN;
                     break;
             }
+        }
+
+        private void Window_MouseEnter(object sender, MouseEventArgs e)
+        {
+            timer.Stop();
+        }
+
+        private void Window_MouseLeave(object sender, MouseEventArgs e)
+        {
+            timer.Start();
         }        
     }
 }
