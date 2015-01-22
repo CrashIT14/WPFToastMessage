@@ -10,3 +10,4 @@ C:\Users\Alexander\Google Drive\Development\Visual Studio 2013\C#\WPFToastMessag
 C:\Users\Alexander\Google Drive\Development\Visual Studio 2013\C#\WPFToastMessage\WPFToastMessage\obj\Debug\WPFToastMessage.csproj.GenerateResource.Cache
 C:\Users\Alexander\Google Drive\Development\Visual Studio 2013\C#\WPFToastMessage\WPFToastMessage\obj\Debug\WPFToastMessage.exe
 C:\Users\Alexander\Google Drive\Development\Visual Studio 2013\C#\WPFToastMessage\WPFToastMessage\obj\Debug\WPFToastMessage.pdb
+C:\Users\Alexander\Google Drive\Development\Visual Studio 2013\C#\WPFToastMessage\WPFToastMessage\obj\Debug\WPFToastMessage.csprojResolveAssemblyReference.cache
