@@ -14,17 +14,14 @@ using System.Windows.Shapes;
 
 namespace Se.Creotec.WPFToastMessage
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
-    public partial class Window1 : Window
+    public partial class ToastLauncher : Window
     {
 
         private String title, message;
         private int delay;
         private ToastMessage.Position pos;
 
-        public Window1()
+        public ToastLauncher()
         {
             InitializeComponent();
             List<ToastMessage.Position> posis = new List<ToastMessage.Position>();
@@ -42,29 +39,32 @@ namespace Se.Creotec.WPFToastMessage
             pos = ToastMessage.Position.TOP_RIGHT;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnFire_Click(object sender, RoutedEventArgs e)
         {
+            // This is where the toast is created
             ToastMessage.Show(message, title, delay, pos);
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        #region Value Setting
+        private void txtTitle_TextChanged(object sender, TextChangedEventArgs e)
         {
             title = txtTitle.Text;
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void txtMessage_TextChanged(object sender, TextChangedEventArgs e)
         {
             message = txtMessage.Text;
         }
 
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void sliderDelay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             delay = (int)sliderDelay.Value;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void comboPos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             pos = (ToastMessage.Position)comboPos.SelectedItem;
         }
+        #endregion
     }
 }

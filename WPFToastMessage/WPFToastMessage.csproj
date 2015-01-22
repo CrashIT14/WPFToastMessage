@@ -54,8 +54,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ToastMessage.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="ToastLauncher.xaml.cs">
+      <DependentUpon>ToastLauncher.xaml</DependentUpon>
     </Compile>
     <Page Include="ToastWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -69,7 +69,7 @@
       <DependentUpon>ToastWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window1.xaml">
+    <Page Include="ToastLauncher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
