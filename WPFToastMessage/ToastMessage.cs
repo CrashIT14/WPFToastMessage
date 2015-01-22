@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Se.Creotec.WPFToastMessage
 {
-    class ToastMessage
-    {
+    public class ToastMessage
+    {                
         /// <summary>
         /// Display a toast message for a defined amount of time
         /// </summary>
@@ -16,7 +16,12 @@ namespace Se.Creotec.WPFToastMessage
         public static void Show(String message, int delay)
         {
             // Dummy action
-            new ToastWindow().Show();
+            new ToastWindow(message, delay).Show();
+        }
+
+        public enum Position 
+        {
+            TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT
         }
     }
 }

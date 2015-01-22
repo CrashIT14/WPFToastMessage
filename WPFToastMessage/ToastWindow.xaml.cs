@@ -25,7 +25,13 @@ namespace Se.Creotec.WPFToastMessage
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public ToastWindow(String message, int delay) : this()
+        {
+            textToastMessage.Text = message;
+            labelToastTitle.Content = message;
+        }
+
+        private void buttonToastClose_Click(object sender, RoutedEventArgs e)
         {
             ToastMessage.Show("I work!", 1000);
         }
